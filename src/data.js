@@ -2,11 +2,11 @@ export const CARDS_DATA = [
     {
         id: 1,
         header: {
-            className: 'header',
+            className: 'header-card',
             content: 'Это шапка карточки #1'
         },
         footer: {
-            className: 'footer',
+            className: 'footer-card',
             content: 'Это подвал карточки #1'
         },
         body: {
@@ -17,11 +17,11 @@ export const CARDS_DATA = [
     {
         id: 2,
         header: {
-            className: 'header',
+            className: 'header-card',
             content: 'Это шапка карточки #2'
         },
         footer: {
-            className: 'footer',
+            className: 'footer-card',
             content: 'Это подвал карточки #2'
         },
         body: {
@@ -32,11 +32,11 @@ export const CARDS_DATA = [
     {
         id: 3,
         header: {
-            className: 'header',
+            className: 'header-card',
             content: 'Это шапка карточки #3'
         },
         footer: {
-            className: 'footer',
+            className: 'footer-card',
             content: 'Это подвал карточки #3'
         },
         body: {
