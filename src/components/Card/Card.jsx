@@ -5,7 +5,7 @@ import {useEffect} from "react";
 
 
 export default function Card(props) {
-    const { header = {}, body = {}, footer = {} } = props.data;
+    const { title = {}, body = {}, userId = {} } = props.data;
 
     useEffect(() => {
         console.log('card mounted successfully');
@@ -18,9 +18,9 @@ export default function Card(props) {
     return (
         <>
             <div className={cardStyles.card}>
-                <HeaderCard  styles={header.className}><p>{header.content}</p></HeaderCard>
-                <p className={body.className}>{body.content}</p>
-                <FooterCard  styles={footer.className}><p>{footer.content}</p></FooterCard>
+                <HeaderCard  styles='header-card'><p>{title}</p></HeaderCard>
+                <p className="body">{body}</p>
+                <FooterCard  styles="footer-card"><p>{userId}</p></FooterCard>
             </div>
         </>
     )
