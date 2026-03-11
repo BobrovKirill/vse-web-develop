@@ -1,29 +1,29 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import { defineConfig, globalIgnores } from 'eslint/config'
+// eslint.config.js
+import js from '@eslint/js';
+import reactHooks from 'eslint-plugin-react-hooks';
+import react from 'eslint-plugin-react';
+import prettier from 'eslint-plugin-prettier';
+import tsEslint from 'typescript-eslint';
 
-export default defineConfig([
-  globalIgnores(['dist']),
+export default [
+  js.configs.recommended,
+  ...tsEslint.configs.recommended,
   {
-    files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
-        sourceType: 'module',
-      },
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+      prettier,
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      ...reactHooks.configs.recommended.rules,
+      'prettier/prettier': 'error',
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off', // если используешь TypeScript
+    },
+    settings: {
+      react: { version: 'detect' },
     },
   },
-])
+];

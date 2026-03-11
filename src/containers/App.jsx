@@ -2,6 +2,13 @@ import Card from "../components/Card/Card.jsx";
 import {CARDS_DATA} from "../data.js";
 import {useEffect, useState} from "react";
 import reactImg from '../assets/react.svg'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
 function App() {
     const [cards, setCards] = useState(CARDS_DATA);
@@ -62,16 +69,33 @@ function App() {
         {/*<h2>HomeWork #2</h2>*/}
         {/*<button onClick={addCard}> Добавить карточку </button>*/}
 
-        <h2>HomeWork #3</h2>
+        {/*<h2>HomeWork #3</h2>*/}
 
-        {error && <div className="error">⚠ Ошибка: {error}</div>}
-        {loading && <div className="loader"><span/><span/><span/></div>}
+        {/*{error && <div className="error">⚠ Ошибка: {error}</div>}*/}
+        {/*{loading && <div className="loader"><span/><span/><span/></div>}*/}
 
-        <div className="cards">
-            {posts.map((item) => (
-                <Card key={item.id} data={item} />
-            ))}
-        </div>
+        {/*<div className="cards">*/}
+        {/*    {posts.map((item) => (*/}
+        {/*        <Card key={item.id} data={item} />*/}
+        {/*    ))}*/}
+        {/*</div>*/}
+
+        <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+                component="img"
+                height="140"
+                image={posterUrl}
+                alt={title}
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {description}
+                </Typography>
+            </CardContent>
+        </Card>
 
     </>
   )
